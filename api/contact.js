@@ -19,7 +19,7 @@ export default async function handler(request) {
     return json({ error: "Method not allowed" }, 405);
 
   const apiKey = process.env.RESEND_API_KEY;
-  const recipient = process.env.CONTACT_TO_EMAIL || "aryantalib60@gmail.com";
+  const recipient = process.env.CONTACT_TO_EMAIL || "inamulmd54321@gmail.com";
   const sender =
     process.env.RESEND_FROM_EMAIL ||
     "Portfolio Contact <onboarding@resend.dev>";

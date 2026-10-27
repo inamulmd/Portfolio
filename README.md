@@ -8,7 +8,7 @@ Add these environment variables in Vercel Project Settings → Environment Varia
 
 ```text
 RESEND_API_KEY=re_xxxxxxxxx
-CONTACT_TO_EMAIL=aryantalib60@gmail.com
+CONTACT_TO_EMAIL=inamulmd54321@gmail.com
 RESEND_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
 ```
 

@@ -88,30 +88,6 @@ document
   .querySelectorAll(".reveal")
   .forEach((el) => revealObserver.observe(el));
 
-const typing = document.querySelector("#typing");
-const roles = ["Full Stack Developer", "Backend Engineer", "Problem Solver"];
-let roleIndex = 0;
-let charIndex = 0;
-let deleting = false;
-function typeRole() {
-  const role = roles[roleIndex];
-  typing.textContent = deleting
-    ? role.slice(0, --charIndex)
-    : role.slice(0, ++charIndex);
-  let delay = deleting ? 40 : 78;
-  if (!deleting && charIndex === role.length) {
-    delay = 1500;
-    deleting = true;
-  }
-  if (deleting && charIndex === 0) {
-    deleting = false;
-    roleIndex = (roleIndex + 1) % roles.length;
-    delay = 300;
-  }
-  setTimeout(typeRole, delay);
-}
-typeRole();
-
 const counterObserver = new IntersectionObserver(
   (entries) =>
     entries.forEach((entry) => {
@@ -176,7 +152,7 @@ form.addEventListener("submit", async (event) => {
     note.textContent = "Thanks — your message has been sent.";
   } catch (error) {
     note.textContent =
-      "Could not send right now. Please email me directly at aryantalib60@gmail.com.";
+      "Could not send right now. Please email me directly at inamulmd54321@gmail.com.";
   } finally {
     submitButton.disabled = false;
     submitButton.querySelector("span").textContent = "↗";
@@ -233,4 +209,44 @@ drawParticles();
 window.addEventListener("resize", () => {
   resizeCanvas();
   seedParticles();
+});
+
+const projectCards = document.querySelectorAll("#projects .project-card");
+const hoverTiltEnabled =
+  matchMedia("(hover: hover) and (pointer: fine)").matches &&
+  !matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (hoverTiltEnabled) {
+  projectCards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const bounds = card.getBoundingClientRect();
+      const horizontal = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const vertical = (event.clientY - bounds.top) / bounds.height - 0.5;
+      card.style.setProperty("--tilt-x", `${-vertical * 7}deg`);
+      card.style.setProperty("--tilt-y", `${horizontal * 7}deg`);
+    });
+    card.addEventListener("pointerleave", () => {
+      card.style.removeProperty("--tilt-x");
+      card.style.removeProperty("--tilt-y");
+    });
+  });
+}
+
+const ambientBackground = document.querySelector(".ambient-background");
+const ambientScenes = [...ambientBackground.querySelectorAll(".ambient-scene")];
+let activeAmbientScene = 0;
+
+function advanceAmbientScene() {
+  ambientScenes[activeAmbientScene].classList.remove("is-active");
+  activeAmbientScene = (activeAmbientScene + 1) % ambientScenes.length;
+  ambientScenes[activeAmbientScene].classList.add("is-active");
+}
+
+let ambientClickCount = 0;
+document.addEventListener("click", () => {
+  ambientClickCount += 1;
+  if (ambientClickCount === 2) {
+    ambientClickCount = 0;
+    advanceAmbientScene();
+  }
 });
