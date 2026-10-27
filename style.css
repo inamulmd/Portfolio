@@ -3874,3 +3874,66 @@ html[data-theme="light"] .contact-section .contact-form textarea::placeholder {
 html[data-theme="light"] .contact-section .form-note {
   color: #526b28;
 }
+
+.coding-section {
+  background: linear-gradient(180deg, transparent, rgba(25, 28, 48, 0.34), transparent);
+}
+.coding-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.coding-card {
+  display: flex;
+  gap: 18px;
+  min-height: 220px;
+  padding: 26px 23px;
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(17, 19, 26, 0.82);
+  border: 1px solid var(--line);
+  transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+}
+.coding-card:hover,
+.coding-card:focus-visible {
+  transform: translateY(-7px);
+  border-color: var(--cyan);
+  background: var(--surface-2);
+}
+.coding-card-icon {
+  display: grid;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: var(--cyan);
+  background: rgba(126, 231, 231, 0.1);
+  border: 1px solid rgba(126, 231, 231, 0.22);
+  border-radius: 13px;
+}
+.coding-card-icon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.codolio-icon { color: #a978ff; background: rgba(169, 120, 255, 0.1); border-color: rgba(169, 120, 255, 0.24); }
+.leetcode-icon { color: #ffb454; background: rgba(255, 180, 84, 0.1); border-color: rgba(255, 180, 84, 0.24); }
+.coding-card-content { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.coding-card-content small { margin: 2px 0 9px; color: var(--muted); font: 9px var(--mono); letter-spacing: 0.08em; }
+.coding-card-content strong { font-size: 22px; letter-spacing: -0.04em; }
+.coding-card-content > span:not(.coding-solved) { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.coding-card-content b { margin-top: auto; padding-top: 18px; color: var(--cyan); font-size: 11px; }
+.coding-card-content b i { margin-left: 5px; font-style: normal; }
+.coding-solved { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; margin-top: 7px; color: #ffb454; font-size: 25px; font-weight: 700; letter-spacing: -0.04em; }
+.coding-solved em { color: var(--muted); font-size: 11px; font-style: normal; font-weight: 500; letter-spacing: 0; }
+html[data-theme="light"] .coding-card { background: rgba(255, 255, 255, 0.88); }
+html[data-theme="light"] .coding-card:hover,
+html[data-theme="light"] .coding-card:focus-visible { background: #fff; }
+@media (max-width: 760px) {
+  .coding-grid { grid-template-columns: 1fr; }
+  .coding-card { min-height: 185px; }
+}
