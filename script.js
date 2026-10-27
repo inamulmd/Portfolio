@@ -242,11 +242,7 @@ function advanceAmbientScene() {
   ambientScenes[activeAmbientScene].classList.add("is-active");
 }
 
-let ambientClickCount = 0;
 document.addEventListener("click", () => {
-  ambientClickCount += 1;
-  if (ambientClickCount === 2) {
-    ambientClickCount = 0;
-    advanceAmbientScene();
-  }
+  advanceAmbientScene();
 });
+window.setInterval(advanceAmbientScene, 3000);
