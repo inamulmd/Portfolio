@@ -3937,3 +3937,16 @@ html[data-theme="light"] .coding-card:focus-visible { background: #fff; }
   .coding-grid { grid-template-columns: 1fr; }
   .coding-card { min-height: 185px; }
 }
+
+/* Keep the wide pixel-art scenes visible without letting them dominate phones. */
+@media (max-width: 760px) {
+  .ambient-scene {
+    background-size: 100% 100%, 100% auto;
+    background-position: center, center top;
+    transform: none;
+  }
+  .education-section {
+    background-size: 100% 100%, 100% auto;
+    background-position: center, center top;
+  }
+}
